@@ -2,6 +2,7 @@ package motion.fashion.network.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 // import org.springframework.transaction.annotation.Transactional;
@@ -73,13 +74,13 @@ public class MainController {
    }
  
    // Show Register page.
-   @RequestMapping(value = "/register", method = RequestMethod.GET)
-   public String viewRegister(Model model) {
+ @RequestMapping(value ="/register", method = RequestMethod.GET)
+   public String viewRegister(Model model){
  
       UserForm form = new UserForm();
       List<Country> countries = countryDAO.getCountries();
  
-      model.addAttribute("UserForm", form);
+      model.addAttribute("appUserForm", form);
       model.addAttribute("countries", countries);
  
       return "registerPage";
@@ -88,9 +89,9 @@ public class MainController {
    // This method is called to save the registration information.
    // @Validated: To ensure that this Form
    // has been Validated before this method is invoked.
-   @RequestMapping(value = "/register", method = RequestMethod.POST)
+   @RequestMapping(value ="/register", method = RequestMethod.POST)
    public String saveRegister(Model model, //
-         @ModelAttribute("UserForm") @Validated UserForm UserForm, //
+         @ModelAttribute("appUserForm") @Validated UserForm appUserForm, //
          BindingResult result, //
          final RedirectAttributes redirectAttributes) {
  
@@ -102,7 +103,7 @@ public class MainController {
       }
       User newUser= null;
       try {
-         newUser = UserDAO.createUser(UserForm);
+         newUser = UserDAO.createUser(appUserForm);
       }
       // Other error!!
       catch (Exception e) {
