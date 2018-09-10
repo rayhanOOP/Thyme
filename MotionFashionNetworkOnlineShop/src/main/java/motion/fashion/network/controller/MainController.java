@@ -51,42 +51,22 @@ public class MainController {
       // ...
    }
  
-   @RequestMapping("/")
-   public String viewHome(Model model) {
- 
-      return "welcomePage";
-   }
- 
-   @RequestMapping("/members")
-   public String viewMembers(Model model) {
- 
-      List<User> list = UserDAO.getUsers();
- 
-      model.addAttribute("members", list);
- 
-      return "membersPage";
-   }
- 
-   @RequestMapping("/registerSuccessful")
-   public String viewRegisterSuccessful(Model model) {
- 
-      return "registerSuccessfulPage";
-   }
+  
+  
  
    // Show Register page.
- @RequestMapping(value ="/register", method = RequestMethod.GET)
+   @RequestMapping(value ="/register", method = RequestMethod.GET)
    public String viewRegister(Model model){
  
       UserForm form = new UserForm();
-      List<Country> countries = countryDAO.getCountries();
  
       model.addAttribute("appUserForm", form);
-      model.addAttribute("countries", countries);
  
       return "registerPage";
    }
- 
-   // This method is called to save the registration information.
+   
+   
+// This method is called to save the registration information.
    // @Validated: To ensure that this Form
    // has been Validated before this method is invoked.
    @RequestMapping(value ="/register", method = RequestMethod.POST)
@@ -117,5 +97,24 @@ public class MainController {
        
       return "redirect:/registerSuccessful";
    }
+   
+   @RequestMapping("/registerSuccessful")
+   public String viewRegisterSuccessful(Model model) {
+ 
+      return "registerSuccessfulPage";
+   }
+      
+   // Show Login page.
+   @RequestMapping(value ="/", method = RequestMethod.GET)
+   public String viewLogin(Model model){
+ 
+      UserForm form = new UserForm();
+ 
+      model.addAttribute("appUserForm", form);
+ 
+      return "loginPage";
+   }
+
+   
  
 }

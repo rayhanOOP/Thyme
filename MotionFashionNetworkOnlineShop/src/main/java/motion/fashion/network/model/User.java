@@ -4,51 +4,44 @@ public class User {
     
 	 
     private Long userId;
-    private String userName;
     private String firstName;
     private String lastName;
     private boolean enabled;
-    private String gender;
+    private String company;
     private String email;
     private String encrytedPassword;
-     
-    private String countryCode;
  
     public User() {
  
     }
  
-    public User(Long userId, String userName, String firstName, String lastName, //
-            boolean enabled, String gender, //
-            String email,String countryCode, String encrytedPassword) {
+    public User(Long userId, String firstName, String lastName, boolean enabled, String company, String email, String encrytedPassword) {
         super();
         this.userId = userId;
-        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.enabled = enabled;
-        this.gender = gender;
+        this.company = company;
         this.email = email;
-        this.countryCode= countryCode;
         this.encrytedPassword = encrytedPassword;
     }
  
-    public Long getUserId() {
+    public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public Long getUserId() {
         return userId;
     }
  
     public void setUserId(Long userId) {
         this.userId = userId;
     }
- 
-    public String getUserName() {
-        return userName;
-    }
- 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
- 
+  
     public String getFirstName() {
         return firstName;
     }
@@ -73,14 +66,6 @@ public class User {
         this.enabled = enabled;
     }
  
-    public String getGender() {
-        return gender;
-    }
- 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
- 
     public String getEmail() {
         return email;
     }
@@ -96,13 +81,4 @@ public class User {
     public void setEncrytedPassword(String encrytedPassword) {
         this.encrytedPassword = encrytedPassword;
     }
- 
-    public String getCountryCode() {
-        return countryCode;
-    }
- 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
- 
 }

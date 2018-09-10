@@ -7,11 +7,11 @@ public class UserForm {
     private String firstName;
     private String lastName;
     private boolean enabled;
-    private String gender;
+    private String company;
     private String email;
     private String password;
     private String confirmPassword;
-    private String countryCode;
+    
  
     public UserForm() {
  
@@ -26,9 +26,8 @@ public class UserForm {
         this.firstName = firstName;
         this.lastName = lastName;
         this.enabled = enabled;
-        this.gender = gender;
+        this.company = gender;
         this.email = email;
-        this.countryCode = countryCode;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
@@ -73,12 +72,12 @@ public class UserForm {
         this.enabled = enabled;
     }
  
-    public String getGender() {
-        return gender;
+    public String getCompany() {
+        return company;
     }
  
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setCompany(String gender) {
+        this.company = gender;
     }
  
     public String getEmail() {
@@ -87,14 +86,6 @@ public class UserForm {
  
     public void setEmail(String email) {
         this.email = email;
-    }
- 
-    public String getCountryCode() {
-        return countryCode;
-    }
- 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
     }
  
     public String getPassword() {

@@ -28,11 +28,11 @@ public class UserDAO {
     private static void initDATA() {
         String encrytedPassword = "";
  
-        User tom = new User(1L, "tom", "Tom", "Tom", //
-                true, Gender.MALE, "tom@waltdisney.com", encrytedPassword, "US");
+        User tom = new User(1L, "tom", "Tom",//
+                true,"tom@waltdisney.com", encrytedPassword, "US");
  
-        User jerry = new User(2L, "jerry", "Jerry", "Jerry", //
-                true, Gender.MALE, "jerry@waltdisney.com", encrytedPassword, "US");
+        User jerry = new User(2L, "jerry", "Jerry",//
+                true,"jerry@waltdisney.com", encrytedPassword, "US");
  
         USERS_MAP.put(tom.getUserId(), tom);
         USERS_MAP.put(jerry.getUserId(), jerry);
@@ -50,10 +50,10 @@ public class UserDAO {
  
     //
  
-    public User findUserByUserName(String userName) {
+    public User findUserByUserName(String email) {
         Collection<User> Users = USERS_MAP.values();
         for (User u : Users) {
-            if (u.getUserName().equals(userName)) {
+            if (u.getEmail().equals(email)) {
                 return u;
             }
         }
@@ -81,9 +81,9 @@ public class UserDAO {
         Long userId = this.getMaxUserId() + 1;
         String encrytedPassword = this.passwordEncoder.encode(form.getPassword());
  
-        User user = new User(userId, form.getUserName(), //
-                form.getFirstName(), form.getLastName(), false, //
-                form.getGender(), form.getEmail(), form.getCountryCode(), //
+        User user = new User(userId,form.getFirstName(),//
+                 form.getLastName(), false, //
+                form.getCompany(), form.getEmail(),// 
                 encrytedPassword);
  
         USERS_MAP.put(userId, user);
