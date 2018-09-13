@@ -2,7 +2,6 @@ package motion.fashion.network.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 // import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +51,15 @@ public class MainController {
    }
  
   
+   /*
+   //For switching between SignedIn and NotSignedIn page
+   @GetMapping("/")
+   String index(Principal principal) {
+       return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
+   }
+   
+   */
+   
   
  
    // Show Register page.
@@ -63,6 +71,18 @@ public class MainController {
       model.addAttribute("appUserForm", form);
  
       return "registerPage";
+   }
+   
+   
+// Show Register page.
+   @RequestMapping("/home")
+   public String viewHOmePage(Model model){
+ 
+	   UserForm form = new UserForm();
+	   
+	  model.addAttribute("appUserForm", form);
+	  
+      return "homeNotSignedIn";
    }
    
    
@@ -103,17 +123,17 @@ public class MainController {
  
       return "registerSuccessfulPage";
    }
-      
+     
+   
    // Show Login page.
-   @RequestMapping(value ="/", method = RequestMethod.GET)
+   @RequestMapping(value ="/login", method = RequestMethod.GET)
    public String viewLogin(Model model){
  
-      UserForm form = new UserForm();
- 
-      model.addAttribute("appUserForm", form);
+    
  
       return "loginPage";
    }
+   
 
    
  
