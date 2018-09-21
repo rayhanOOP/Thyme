@@ -114,13 +114,15 @@ public class MainController {
       }
  
       redirectAttributes.addFlashAttribute("flashUser", newUser);
-       
+      
       return "redirect:/registerSuccessful";
    }
    
    @RequestMapping("/registerSuccessful")
    public String viewRegisterSuccessful(Model model) {
- 
+	   
+	   User user = new User();
+	  model.addAttribute(user);
       return "registerSuccessfulPage";
    }
      

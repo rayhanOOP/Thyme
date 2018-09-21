@@ -2,12 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <title th:utext="${title}"></title>
-      
+      <meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width,initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <style>
 
          body {
          font-family: Arial, Helvetica, sans-serif;
-         background-color: #b3daff; 
+         background-color: white ; 
+         margin-top : 20px; 
+         
+          
          }
          th, td {
          padding: 5px;
@@ -24,6 +31,9 @@
          .login {
          background-color: #f1f1f1;
          text-align: center;
+         padding-top:3px;
+         height: 25px;
+         border-radius: 25px;
          }
          /* Add padding to containers */
          .container {
@@ -53,7 +63,7 @@ input[type=text]:focus, input[type=password]:focus {
 /* Overwrite default styles of hr */
 hr {
     border: 1px solid #f1f1f1;
-    margin-left: 660px;
+    margin-left: 430px;
 }
 
          .registerbtn {
@@ -74,7 +84,8 @@ hr {
          * {
          box-sizing: border-box;
          margin: auto;
-         margin-top: 20px;
+         margin-bottom: 0;
+         
          }
 
       </style>
@@ -83,7 +94,7 @@ hr {
       
    <div class="container">
 
-   <h2 style="margin-left: 660px;">Register</h2>
+   <h2 style="margin-left: 430px;">Register</h2>
    <hr>
       
       <div th:if="${errorMessage != null}"
@@ -149,11 +160,18 @@ hr {
                <td>&nbsp;</td>
             </tr>
             
-         </table>
-
-         <div class="container login">
+             <tr>
+               <td>&nbsp;</td>
+               <td>
+                   <div class="login text-info">
                <p>Already have an account?<a href="loginPage.html">Log In</a>.</p>
          </div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            
+         </table>
+         
       </form>
      </div>  
    </body>
