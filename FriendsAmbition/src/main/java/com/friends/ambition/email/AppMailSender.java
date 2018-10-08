@@ -1,10 +1,13 @@
 package com.friends.ambition.email;
 
 import java.util.Date;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 /**
@@ -47,8 +50,7 @@ public class AppMailSender implements ApplicationRunner {
 	private void sendHtmltMail() {
 
 		
-		String from = "pavan@localhost";
-		String to = "solapure@localhost";
+		String from = "pavan@localhost";		String to = "solapure@localhost";
 		String subject = "Java Mail with Spring Boot";
 
 		EmailTemplate template = new EmailTemplate("email.html");
